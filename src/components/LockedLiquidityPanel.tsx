@@ -1,6 +1,6 @@
 import React from 'react';
 import { LockedPosition } from '../services/lockedPositions';
-import { RefreshCw, ExternalLink, AlertTriangle, Info, Layers, Coins, ChevronRight } from 'lucide-react';
+import { RefreshCw, ExternalLink, AlertTriangle, Info, Layers, Coins } from 'lucide-react';
 
 interface Props {
   positions: LockedPosition[];
@@ -30,7 +30,7 @@ const STATUS_COLORS: Record<string, string> = {
   locked: 'text-amber-400',
 };
 
-export const LockedLiquidityPanel: React.FC<Props> = ({ positions, totalValue, protocolScanning, onScan, hasScanned, tokenCount }) => {
+export const LockedLiquidityPanel: React.FC<Props> = ({ positions, protocolScanning, onScan, hasScanned }) => {
   const grouped = React.useMemo(() => {
     const map: Record<string, LockedPosition[]> = {};
     positions.forEach(p => {

@@ -33,7 +33,7 @@ export const WalletConnectionProvider: React.FC<{ children: React.ReactNode }> =
       new NightlyWalletAdapter(),
       new TorusWalletAdapter(),
       new TrustWalletAdapter(),
-      new WalletConnectWalletAdapter({ network, options: { relayUrl: 'wss://relay.walletconnect.org' } }),
+      new WalletConnectWalletAdapter({ network: network as any, options: { relayUrl: 'wss://relay.walletconnect.org' } }),
       new LedgerWalletAdapter(),
     ],
     [network],

@@ -20,8 +20,6 @@ export const useSolanaScanner = () => {
       setError('No wallet selected. Connect a wallet or add a watch address.');
       return;
     }
-    const isWatchOnly = !publicKey || !target.equals(publicKey);
-
     setScanning(true);
 
     try {
@@ -109,6 +107,7 @@ export const useSolanaScanner = () => {
         const epochInfo = await connection.getEpochInfo();
         const currentEpoch = epochInfo.epoch;
 
+        const targetStr = target.toBase58();
         const stakeAccountsRaw = await connection.getParsedProgramAccounts(
           StakeProgram.programId,
           {
@@ -122,8 +121,6 @@ export const useSolanaScanner = () => {
             ],
           }
         );
-
-        const targetStr = target.toBase58();
         stakeAccountsRaw.forEach((raw: any) => {
           const pubkey = raw.pubkey.toBase58();
           const lamports = raw.account.lamports;

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import '@solana/wallet-adapter-react-ui/styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-solana-dark text-solana-text font-sans antialiased overflow-x-hidden min-h-screen;
+    background-image: radial-gradient(circle at 50% -20%, #1e1035 0%, #08090a 60%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-solana-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-solana-border rounded-full hover:bg-slate-700 transition-colors;
+  }
+}
+
+/* Solana Wallet Adapter Override to match theme */
+.wallet-adapter-button {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  padding: 0 20px !important;
+  font-size: 14px !important;
+  background-color: #121417 !important;
+  border: 1px solid #20242a !important;
+  color: #f0f2f5 !important;
+  transition: all 0.3s ease !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background-color: #14F195 !important;
+  color: #08090a !important;
+  border-color: #14F195 !important;
+  box-shadow: 0 0 15px rgba(20, 241, 149, 0.4);
+}
+
+.wallet-adapter-button-trigger {
+  background-color: #9945FF !important;
+  border-color: #9945FF !important;
+  color: #ffffff !important;
+}
+
+.wallet-adapter-button-trigger:not([disabled]):hover {
+  background-color: #a355ff !important;
+  box-shadow: 0 0 15px rgba(153, 69, 255, 0.4);
+}
+
+.glass-panel {
+  @apply bg-solana-card bg-opacity-70 backdrop-blur-md border border-solana-border rounded-2xl;
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 hover:border-slate-700 hover:shadow-lg hover:shadow-purple-950/10;
+}
